@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Will You Forgive Me?</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: #fff8f0;
+        text-align: center;
+        padding: 60px;
+      }
+
+      h1 {
+        color: #e63946;
+        font-size: 3em;
+        margin-bottom: 40px;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        margin: 20px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .yes-btn {
+        background-color: #2a9d8f;
+        color: white;
+      }
+
+      .no-btn {
+        background-color: #e76f51;
+        color: white;
+        position: absolute;
+      }
+
+      #photo-container {
+        margin-top: 40px;
+        display: none;
+      }
+
+      #photo-container img {
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <img src="/sad.png" alt="Sad" id="sadPhoto" />
+    <h2>Babe wag ka na po tampo.</h2>
+    <h1>Will You Forgive Me? 😢</h1>
+
+    <button class="btn yes-btn" onclick="showPhoto()">Yes 💖</button>
+    <button class="btn no-btn" id="noBtn">No 😠</button>
+
+    <div id="photo-container">
+      <p>Yaaay! 🥺💗 Here's a memory of us:</p>
+      <img src="/huggg.png" alt="Our Photo" id="photo" />
+    </div>
+
+    <script>
+      const noBtn = document.getElementById("noBtn");
+
+      function getRandomPosition() {
+        const x = Math.floor(Math.random() * (window.innerWidth - 100));
+        const y = Math.floor(Math.random() * (window.innerHeight - 100));
+        return { x, y };
+      }
+
+      noBtn.addEventListener("mouseover", () => {
+        const pos = getRandomPosition();
+        noBtn.style.left = `${pos.x}px`;
+        noBtn.style.top = `${pos.y}px`;
+      });
+
+      function showPhoto() {
+        document.getElementById("photo-container").style.display = "block";
+        // Removed the line that overwrites the image src
+      }
+    </script>
+  </body>
+</html>
